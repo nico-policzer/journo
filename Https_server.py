@@ -10,7 +10,7 @@ import openai
 
 hostName = "localhost"
 serverPort = 8080
-openai_key = "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"
+openai_key = "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"
 
 
 def speech_to_text(audio: str) -> str:
