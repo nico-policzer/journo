@@ -47,6 +47,7 @@ function App(): JSX.Element {
   // use .unshift to update
   const [archive, setArchive] = useState<Entry[]>([]);
   const [activePrompt, setActivePrompt] = useState<string>('Hello Nico.');
+  const [focus, setFocus] = useState(false);
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
@@ -56,13 +57,16 @@ function App(): JSX.Element {
   return (
     <SafeAreaView style={styles.container}>
       {page ==='archive' && <ArchiveMenu archive={archive}/>}
-      {page ==='main' && <JournalScreen prompt={activePrompt} archive={archive} setArchive={setArchive}/>}
+      {page ==='main' && <JournalScreen 
+      prompt={activePrompt} 
+      archive={archive} 
+      setArchive={setArchive}
+      setFocus={setFocus}/>}
       {page ==='prompts' && <PromptScreen setActivePrompt={setActivePrompt}/>}
       
       
       
-      
-      <NavBar pages={setPage}/>
+      {!focus && <NavBar pages={setPage}/>}
     </SafeAreaView>
   );
 }

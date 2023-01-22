@@ -30,13 +30,18 @@ function JournalScreen(prop: any) {
     const prompt = prop.prompt;
     const archive = prop.archive;
     const setArchive = prop.setArchive;
+    const setFocus = prop.setFocus;
     //const[input, setInput] = useState('');
     const [response, setResponse] = useState('Please enter a query.');
     return (
         <View style={styles.frame}>
             <Text style={styles.text}> {prompt}</Text>
             <TextInput style={styles.input} placeholder="..."
-                onSubmitEditing={(prop) => prop.nativeEvent.text && submitPrompt(prop.nativeEvent.text, prompt, setResponse, archive, setArchive)}>
+                onFocus={() => setFocus(true)}
+                onSubmitEditing={(prop) => {
+                    setFocus(false)
+                prop.nativeEvent.text && submitPrompt(prop.nativeEvent.text, prompt, setResponse, archive, setArchive)}}>
+                
             </TextInput>
 
         </View>

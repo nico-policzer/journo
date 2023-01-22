@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
         display: "flex",
         flex: 1,
         gap: 20,
-        justifyContent: "space-evenly",
+        justifyContent: "center",
         padding: 10,
         width: "100%",
         backgroundColor:'#FF9B26', // rgba(255, 155, 38, 1.0) orange

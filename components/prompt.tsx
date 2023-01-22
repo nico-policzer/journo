@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     height: 150,
     backgroundColor: "rgba(52, 66, 60, 0.5)",
     alignContent: "center",
-    flex: 1,
+    flex: 0,
     display: "flex",
     borderRadius: 30,
   },
@@ -61,10 +61,6 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontWeight: "bold",
     fontSize: 25,
-  },
-  button: {
-    padding: 40,
-    color: "blue",
   },
 });
 
