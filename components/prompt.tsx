@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     fontFamily: "Hind",
     textAlign: "center",
     letterSpacing: 1,
-    fontSize: 25,
+    fontSize: 20,
   },
 });
 

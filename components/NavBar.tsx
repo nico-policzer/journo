@@ -71,10 +71,6 @@ function NavBar(prop: any) {
         </View>
     );
 }
-async function getPrompts() {
-    let generator: PromptGenerator = new PromptGenerator();
-    return ["Something that made me smile today", "What was the kindest thing someone did for me today?", "What is a goal that i'd like to accomplish by the end of the month?"];
-}
 
 const styles = StyleSheet.create({
     BoyIconStyle: {

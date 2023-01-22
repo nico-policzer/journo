@@ -53,7 +53,7 @@ async function submitPrompt(entry: string, prompt: string, setResponse: any, arc
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     // {Add functionality to send to chatGTP here}
 
-    let toAI = "Please provide a respond to this journal entry.\n" + "PROMPT:" + prompt + "\n" + entry;
+    let toAI = "Read the following journal entry and, assuming it is complete, give a response to it that is within two sentences, providing well-being recommendations. If the text seems incomplete or doesn't seem like a journal entry, respond with an apology about how you aren't able to understand their entry:\n"  + prompt + "\n" + entry;
     const textProcessor: TextProcessor = new TextProcessor();
     const results: string[] = await textProcessor.completeText(toAI);
     let dateOfEntry = months[date.getMonth()] + " " + date.getDate() + " " + date.getFullYear()

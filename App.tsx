@@ -49,7 +49,7 @@ function App(): JSX.Element {
   // Arhive will hold objects of type archive  in the format {date:string, title:string, entry:string, ai_response:string}
   // use .unshift to update
   const [archive, setArchive] = useState<Entry[]>([]);
-  const [activePrompt, setActivePrompt] = useState<string>('Hello Nico.');
+  const [activePrompt, setActivePrompt] = useState<string>('Hello User, \n Welcome to journo');
   const [focus, setFocus] = useState<boolean>(false);
   const [record, setRecord] = useState<boolean>(false);
   const isDarkMode = useColorScheme() === 'dark';
