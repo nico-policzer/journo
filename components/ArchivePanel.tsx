@@ -41,9 +41,14 @@ function ArchivePanel({entry}: {entry: Entry}) {
 const styles = StyleSheet.create({
     entry: {
         display: "flex",
-        backgroundColor: "gray",
-        height: 300,
+        backgroundColor: "rgba(52, 66, 60, 0.5)",
+        height: "auto",
         padding: 30,
+        flex: 1,
+        borderRadius: 20,
+        borderColor: "white",
+        borderWidth: 1,
+
     },
     aiText: {
         fontWeight:"bold",

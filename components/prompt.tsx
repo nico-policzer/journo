@@ -23,49 +23,50 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-interface promptInterface{
+interface promptInterface {
   prompt: string
 }
-function Prompt({prompt}: promptInterface) {
- return (
+function Prompt({ prompt }: promptInterface) {
+  return (
     <View style={styles.prompt}>
+      <TouchableOpacity activeOpacity={0.5} style={styles.touch}>
         <Text style={styles.text}>{prompt}</Text>
-        <View style={styles.promptButtons}>
-         <Button onPress={() => 1} title="write"/>
-         <Button onPress={() => 1} title="talk"/>
-        </View>
+      </TouchableOpacity>
     </View>
- );
+  );
 };
 
 
 const styles = StyleSheet.create({
-    prompt: {
-      height: 200,
-      backgroundColor: "gray",
-      alignContent: "center",
-      flex: 1,
+  prompt: {
+    height: 150,
+    backgroundColor: "gray",
+    alignContent: "center",
+    flex: 1,
+    display: "flex",
+    borderColor: "white",
+    borderWidth: 2,
+    borderRadius: 30,
+  },
+
+  touch: {
+    flex:1,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
     },
-      promptButtons: {
-        width: "auto",
-        margin: 30,
-        justifyContent:"center",
-        display: "flex",
-        flexDirection:"row",
-        color: "yellow",
-        gap: 40,
-      },
-      text: {
-        color: "white",
-        margin: 30,
-        fontFamily: "Hind",
-        textAlign: "center",
-        fontWeight: "bold",
-      },
-      button: {
-        padding: 40,
-        color: "blue",
-      },
+  text: {
+    color: "white",
+    margin: 30,
+    fontFamily: "Hind",
+    textAlign: "center",
+    fontWeight: "bold",
+    fontSize: 25,
+  },
+  button: {
+    padding: 40,
+    color: "blue",
+  },
 });
 
 export default Prompt;

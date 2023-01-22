@@ -28,18 +28,12 @@ interface promptInterface{
 }
 function PromptScreen() {
  return (
-    <ScrollView style={styles.frame}>
     <View style={styles.scrollFrame}>
       <Prompt prompt={"TEXT PROMPT #1"}/>
       <Prompt prompt={"TEXT PROMPT #2"}/>
-      <Prompt prompt={"TEXT PROMPT #2"}/>
-      <Prompt prompt={"TEXT PROMPT #2"}/>
-      <Prompt prompt={"TEXT PROMPT #2"}/>
-      <Prompt prompt={"TEXT PROMPT #2"}/>
-      <Prompt prompt={"TEXT PROMPT #2"}/>
+      <Prompt prompt={"TEXT PROMPT #3"}/>
     </View>
 
-      </ScrollView>
  );
 };
 
@@ -48,6 +42,11 @@ const styles = StyleSheet.create({
     scrollFrame: {
         display: "flex",
         flex: 1,
+        gap: 20,
+        justifyContent: "space-evenly",
+        padding: 10,
+        width: "100%",
+        backgroundColor:'#121212',
     },
     frame: {
         width: "100%",

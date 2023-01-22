@@ -37,7 +37,7 @@ function ArchiveMenu({ archive }: ArchiveMenuProps) {
 
     return (
         <ScrollView style={styles.frame}>
-            <View style={styles.scrollFrame}>
+            <View style={styles.scrollContent}>
                 {archive.map((e) => <ArchivePanel entry={e} key={e.id}/>)}
             </View>
            
@@ -47,9 +47,13 @@ function ArchiveMenu({ archive }: ArchiveMenuProps) {
 
 
 const styles = StyleSheet.create({
-    scrollFrame: {
+    scrollContent: {
         display: "flex",
         flex: 1,
+        height: "100%",
+        gap: 20,
+        padding: 15,
+        
     },
     frame: {
         width: "100%",
