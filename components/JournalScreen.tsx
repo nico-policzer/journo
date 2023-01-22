@@ -45,6 +45,7 @@ function JournalScreen(prop: any) {
  );
 };
 async function submitPrompt(prompt: string, setResponse: any, archive: any, setArchive: any) {
+    var date = new Date();
     // {Add functionality to send to chatGTP here}
     
     let toAI = "Please provide a respond to this journal entry.\n" + prompt;
@@ -53,7 +54,7 @@ async function submitPrompt(prompt: string, setResponse: any, archive: any, setA
     console.log(prompt);
     console.log(results);
 
-    const entry: Entry = {title:"TITLE", date:"DATE", entry:prompt, ai_response:results.join(" "), id:1}
+    const entry: Entry = {title:"TITLE", date:"DATE", entry:prompt, ai_response:results.join(" "), id:date.getTime()}
 
     archive.unshift(entry);
     setArchive(archive);
