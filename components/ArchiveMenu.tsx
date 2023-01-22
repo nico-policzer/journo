@@ -70,7 +70,9 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         textAlign:"center",
         height: 50,
+        
         padding: 30,
+        paddingBottom: 0,
         fontSize: 30,  
         flex: 1,
     },
@@ -79,6 +81,7 @@ const styles = StyleSheet.create({
         display: "flex",
         textAlign:"center",
         height:"20%",
+        justifyContent:'flex-end',
         },
     date: {
         color: "white",

@@ -17,7 +17,7 @@ export class PromptGenerator {
     public completeText() {
 
 
-    return ["Something that made me smile today", "What was the kindest thing someone did for me today?", "What is a goal that i'd like to accomplish by the end of the month?"];
+    return ["Something that made you smile today", "What was the kindest thing someone did for you today?", "What is a goal that you'd like to accomplish by the end of the month?"];
         
     }
 }

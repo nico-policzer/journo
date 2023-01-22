@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     },
     aiText: {
         fontWeight: "bold",
-        color: "white",
+        color: "rgba(255,255,255,0.7)",
         fontFamily: "Hind",
     },
     date: {

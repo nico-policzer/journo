@@ -37,7 +37,7 @@ function JournalScreen(prop: any) {
     return (
         <View style={styles.frame}>
             <Text style={styles.text}> {prompt}</Text>
-            <TextInput  style={focus? styles.input_focus: styles.input} placeholder="..."
+            <TextInput  style={focus? styles.input_focus: styles.input} placeholder="Type here"
                 onFocus={() => setFocus(true)}
                 onSubmitEditing={(prop) => {
                     setFocus(false)
@@ -57,7 +57,7 @@ async function submitPrompt(entry: string, prompt: string, setResponse: any, arc
     const textProcessor: TextProcessor = new TextProcessor();
     const results: string[] = await textProcessor.completeText(toAI);
     let dateOfEntry = months[date.getMonth()] + " " + date.getDate() + " " + date.getFullYear()
-    const loggedEntry: Entry = { title: prompt, date: dateOfEntry, entry: entry, ai_response: results.join(" "), id: date.getTime() }
+    const loggedEntry: Entry = { title: prompt, date: dateOfEntry, entry: entry, ai_response: "\njourno:\n" + results.join(" ").trim(), id: date.getTime() }
 
     archive.unshift(loggedEntry);
     setArchive(archive);
@@ -96,13 +96,14 @@ const styles = StyleSheet.create({
         lineHeight:100,
     },
     text: {
-        padding: 30,
+        padding: 40,
         color: "white",
         fontFamily: "Hind",
         height: "auto",
-        fontSize: 20,
+        fontSize: 25,
         fontWeight: "800",
         textAlign: "center",
+        fontStyle:"italic",
         justifyContent: "flex-start",
     }
 });
