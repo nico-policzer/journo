@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
         justifyContent: "space-evenly",
         padding: 10,
         width: "100%",
-        backgroundColor:'#121212',
+        backgroundColor:'#FF9B26', // rgba(255, 155, 38, 1.0) orange
     },
     frame: {
         width: "100%",

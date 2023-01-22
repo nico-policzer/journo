@@ -40,12 +40,10 @@ function Prompt({ prompt }: promptInterface) {
 const styles = StyleSheet.create({
   prompt: {
     height: 150,
-    backgroundColor: "gray",
+    backgroundColor: "rgba(52, 66, 60, 0.5)",
     alignContent: "center",
     flex: 1,
     display: "flex",
-    borderColor: "white",
-    borderWidth: 2,
     borderRadius: 30,
   },
 
