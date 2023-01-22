@@ -31,7 +31,8 @@ function Prompt({prompt}: promptInterface) {
     <View style={styles.prompt}>
         <Text style={styles.text}>{prompt}</Text>
         <View style={styles.promptButtons}>
-         
+         <Button onPress={() => 1} title="write"/>
+         <Button onPress={() => 1} title="talk"/>
         </View>
     </View>
  );
@@ -40,9 +41,10 @@ function Prompt({prompt}: promptInterface) {
 
 const styles = StyleSheet.create({
     prompt: {
-      width: "90%",
-      height: 100,
-      backgroundColor: "#151411",
+      height: 200,
+      backgroundColor: "gray",
+      alignContent: "center",
+      flex: 1,
     },
       promptButtons: {
         width: "auto",
@@ -50,10 +52,12 @@ const styles = StyleSheet.create({
         justifyContent:"center",
         display: "flex",
         flexDirection:"row",
+        color: "yellow",
         gap: 40,
       },
       text: {
         color: "white",
+        margin: 30,
         fontFamily: "Hind",
         textAlign: "center",
         fontWeight: "bold",
