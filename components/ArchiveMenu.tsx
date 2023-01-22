@@ -62,6 +62,7 @@ const styles = StyleSheet.create({
     },
     content: {
         height:"90%",
+        
     },
     title: {
         color: "white",
@@ -89,10 +90,14 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     frame: {
-        width: "100%",
         height:"80%",
         display: "flex",
         flex: 1,
+        backgroundColor:"rgba(0,0,0, 0.5)",
+        marginHorizontal:20,
+        borderTopLeftRadius: 30,
+        padding: 10,
+        borderTopRightRadius: 30,
     },
 });
 

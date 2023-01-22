@@ -22,20 +22,29 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import { PromptGenerator } from './promptGenerator';
 
 interface promptInterface{
   prompt: string
 }
 function PromptScreen({setActivePrompt}: any) {
+    let prompts = ["Something that made me smile today", "What was the kindest thing someone did for me today?", "What is a goal that i'd like to accomplish by the end of the month?"];
+    
  return (
+    <View style={styles.frame}>
+        <View style={styles.header}>
+            <Text style={styles.title}>How was your day?</Text>
+            <Text style={styles.promptTitle}>PICK A PROMPT</Text>
     <View style={styles.scrollFrame}>
-      <Prompt prompt={"Something that made me smile today"} setActivePrompt={setActivePrompt}/>
-      <Prompt prompt={"What was the kindest thing that someone did for me today?"} setActivePrompt={setActivePrompt}/>
-      <Prompt prompt={"What is a goal that I would like to accomplish by the end of the month?"} setActivePrompt={setActivePrompt}/>
+      <Prompt prompt={prompts[0]} setActivePrompt={setActivePrompt}/>
+      <Prompt prompt={prompts[1]} setActivePrompt={setActivePrompt}/>
+      <Prompt prompt={prompts[2]} setActivePrompt={setActivePrompt}/>
+      </View>
     </View>
-
+    </View>
  );
 };
+
 
 
 const styles = StyleSheet.create({
@@ -44,10 +53,44 @@ const styles = StyleSheet.create({
         flex: 1,
         gap: 20,
         justifyContent: "center",
+        height: "80%",
         padding: 10,
         width: "100%",
         //backgroundColor:'#FF9B26', // rgba(255, 155, 38, 1.0) orange
     },
+    frame: {
+        width: "100%",
+        height: "80%",
+        flex:1,
+    },
+    header: {
+        height: "80%",
+        display: "flex",
+        justifyContent: "flex-start",
+        gap: 8,
+        
+    },
+    promptTitle: {
+        flex: 1,
+        
+        color: "white",
+        fontFamily:"Hind",
+        textAlign:"center",
+        fontWeight:"bold",
+        fontSize:14,
+        letterSpacing: 1,
+        
+
+    },
+    title: {
+        paddingTop: 40,
+        fontSize: 25,
+        color: "white",
+        fontFamily:"Hind",
+        textAlign:"center",
+        fontWeight:"bold",
+
+    }
 });
 
 export default PromptScreen;

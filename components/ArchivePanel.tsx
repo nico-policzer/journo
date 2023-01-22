@@ -48,19 +48,18 @@ function ArchivePanel({ entry }: { entry: Entry }) {
 const styles = StyleSheet.create({
     entry: {
         display: "flex",
-        backgroundColor: "rgba(52, 66, 60, 0.5)",
+        
         height: "auto",
         padding: 15,
         flex: 1,
         borderRadius: 20,
-        borderColor: "white",
-        borderWidth: 1,
         flexDirection: "row",
         gap: 10,
 
     },
     content: {
         width: "90%",
+        
         gap: 1,
     },
     folder: {
@@ -75,7 +74,7 @@ const styles = StyleSheet.create({
         fontFamily: "Hind",
     },
     date: {
-        color: "white",
+        color: "rgba(255,255,255, 0.5)",
         fontFamily: "Hind",
         fontWeight: "bold"
     },

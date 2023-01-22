@@ -37,7 +37,7 @@ function JournalScreen(prop: any) {
     return (
         <View style={styles.frame}>
             <Text style={styles.text}> {prompt}</Text>
-            <TextInput style={focus? styles.input_focus: styles.input} placeholder="..."
+            <TextInput  style={focus? styles.input_focus: styles.input} placeholder="..."
                 onFocus={() => setFocus(true)}
                 onSubmitEditing={(prop) => {
                     setFocus(false)
@@ -53,7 +53,7 @@ async function submitPrompt(entry: string, prompt: string, setResponse: any, arc
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     // {Add functionality to send to chatGTP here}
 
-    let toAI = "Please provide a respond to this journal entry.\n" + entry;
+    let toAI = "Please provide a respond to this journal entry.\n" + "PROMPT:" + prompt + "\n" + entry;
     const textProcessor: TextProcessor = new TextProcessor();
     const results: string[] = await textProcessor.completeText(toAI);
     let dateOfEntry = months[date.getMonth()] + " " + date.getDate() + " " + date.getFullYear()
@@ -75,8 +75,6 @@ const styles = StyleSheet.create({
     },
     input: {
         flex: 1,
-        borderTopRightRadius: 30,
-        borderTopLeftRadius: 30,
         padding: 15,
         textAlignVertical: "top",
         color:"white",
@@ -86,11 +84,16 @@ const styles = StyleSheet.create({
         marginHorizontal: 20,
         flex: 1,
         backgroundColor: "rgba(0,0,0, 0.5)",
-        borderTopRightRadius: 30,
-        borderTopLeftRadius: 30,
+        borderTopRightRadius: 15,
+        borderTopLeftRadius: 15,
         padding: 15,
+        paddingTop: 30,
         textAlignVertical: "top",
         color:"white",
+        fontSize:14,
+        fontFamily:"Hind",
+        letterSpacing:1,
+        lineHeight:100,
     },
     text: {
         padding: 30,
