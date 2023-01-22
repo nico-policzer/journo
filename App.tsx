@@ -6,8 +6,8 @@
  */
 
 import React from 'react';
-import type {PropsWithChildren} from 'react';
-import { TouchableOpacity } from 'react-native';
+import type { PropsWithChildren } from 'react';
+import { TextInput, TouchableOpacity } from 'react-native';
 import {
   SafeAreaView,
   ScrollView,
@@ -31,7 +31,7 @@ type SectionProps = PropsWithChildren<{
   title: string;
 }>;
 
-function Section({children, title}: SectionProps): JSX.Element {
+function Section({ children, title }: SectionProps): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
   return (
     <View style={styles.sectionContainer}>
@@ -65,45 +65,52 @@ function App(): JSX.Element {
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <View style={styles.container} >
+    <SafeAreaView style={styles.container}>
 
-<View >
-  <View style={styles.iconContainer}>
-    <TouchableOpacity activeOpacity={0.5}>
-      <Image
-        source={require('./images/journalIcon.png')}
-        
-      />
+      <View style={styles.content}>
+        <Text>A text element</Text>
+        <TextInput></TextInput>
+      </View>
+      <View style={styles.footer}>
+        <View style={styles.iconContainer}>
+          <TouchableOpacity activeOpacity={0.5}>
+            <Image
+              source={require('./images/journalIcon.png')}
 
-    </TouchableOpacity>
-  </View>
+            />
+
+          </TouchableOpacity>
+        </View>
 
 
-  <TouchableOpacity activeOpacity={0.5}>
-    <Image
-      source={require('./images/boy.png')}
-      style={styles.BoyIconStyle}
-    />
+        <TouchableOpacity activeOpacity={0.5}>
+          <Image
+            source={require('./images/boy.png')}
+            style={styles.BoyIconStyle}
+          />
 
-  </TouchableOpacity>
-  <View style={styles.iconContainer}>
-    <TouchableOpacity activeOpacity={0.5}>
-      <Image
-        source={require('./images/historyIcon.png')}
-        
-      />
+        </TouchableOpacity>
+        <View style={styles.iconContainer}>
+          <TouchableOpacity activeOpacity={0.5}>
+            <Image
+              source={require('./images/historyIcon.png')}
 
-    </TouchableOpacity>
+            />
 
-  </View>
-</View>
-</View>
+          </TouchableOpacity>
+
+        </View>
+      </View>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
+  content: {
+    flex: 1,
+    backgroundColor:"#3380DA",
+    width: "100%",
+  },
   sectionContainer: {
     marginTop: 32,
     paddingHorizontal: 24,
@@ -123,16 +130,16 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "black",
-     //'#4c2150',
+    //'#4c2150',
     alignItems: 'center',
     justifyContent: 'flex-end',
   },
   footer: {
     display: "flex",
-    backgroundColor: "black",
     flexDirection: "row",
     width: "100%",
     height: 100,
+    backgroundColor: "#121212",
     justifyContent: "space-evenly",
     alignContent: "center",
   },
