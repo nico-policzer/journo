@@ -23,6 +23,8 @@ import {
 
 function NavBar(prop: any) {
     const setPage = prop.pages;
+    const setRecord = prop.setRecord;
+    const page = prop.page;
     return(
         <View style={styles.footer}>
         <View style={styles.iconContainer}>
@@ -36,7 +38,10 @@ function NavBar(prop: any) {
         </View>
 
 
-        <TouchableOpacity activeOpacity={0.5} onPress={() => setPage('main')}>
+        <TouchableOpacity activeOpacity={0.5} onPress={() => {
+            (page === 'main' && setRecord(true))
+            setPage('main')}
+            }>
           <Image
             source={require('../images/boy.png')}
             style={styles.BoyIconStyle}

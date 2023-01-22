@@ -34,6 +34,7 @@ import PromptScreen from "./components/PromptScreen";
 import JournalScreen from "./components/JournalScreen";
 import ArchiveMenu from "./components/ArchiveMenu";
 import { Entry } from "./components/types";
+import RecordScreen from "./components/RecordScreen";
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -47,7 +48,8 @@ function App(): JSX.Element {
   // use .unshift to update
   const [archive, setArchive] = useState<Entry[]>([]);
   const [activePrompt, setActivePrompt] = useState<string>('Hello Nico.');
-  const [focus, setFocus] = useState(false);
+  const [focus, setFocus] = useState<boolean>(false);
+  const [record, setRecord] = useState<boolean>(false);
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
@@ -57,16 +59,18 @@ function App(): JSX.Element {
   return (
     <SafeAreaView style={styles.container}>
       {page ==='archive' && <ArchiveMenu archive={archive}/>}
-      {page ==='main' && <JournalScreen 
+      {page ==='main' && !record && <JournalScreen 
       prompt={activePrompt} 
       archive={archive} 
       setArchive={setArchive}
       setFocus={setFocus}/>}
+      {page === 'main' && record && <RecordScreen setRecord={setRecord}/>}
       {page ==='prompts' && <PromptScreen setActivePrompt={setActivePrompt}/>}
       
       
       
-      {!focus && <NavBar pages={setPage}/>}
+      
+      {!focus && !record && <NavBar pages={setPage} page={page} setRecord={setRecord}/>}
     </SafeAreaView>
   );
 }
