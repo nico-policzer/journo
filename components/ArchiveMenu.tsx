@@ -36,14 +36,17 @@ interface ArchiveMenuProps {
 function ArchiveMenu({ archive }: ArchiveMenuProps) {
 
     return (
-        <>
-        <Text style={styles.header}> Past Entries</Text>
-        <ScrollView style={styles.frame}>
-            <View style={styles.scrollContent}>
-                {archive.map((e) => <ArchivePanel entry={e} key={e.id}/>)}
+        <View style={styles.content}>
+            <View style={styles.header}>
+                <Text style={styles.title}> Your Journey</Text>
+                <Text style={styles.date}> 2023</Text>
             </View>
-        </ScrollView>
-        </>
+            <ScrollView style={styles.frame}>
+                <View style={styles.scrollContent}>
+                    {archive.map((e) => <ArchivePanel entry={e} key={e.id} />)}
+                </View>
+            </ScrollView>
+        </View>
     );
 };
 
@@ -55,17 +58,39 @@ const styles = StyleSheet.create({
         height: "100%",
         gap: 20,
         padding: 15,
-        
+
     },
-    header: {
+    content: {
+        height:"90%",
+    },
+    title: {
         color: "white",
-        fontFamily:"Hind",
+        fontFamily: "Hind",
         fontWeight: "bold",
+        textAlign:"center",
+        height: 50,
         padding: 30,
-        fontSize: 30,
+        fontSize: 30,  
+        flex: 1,
+    },
+   
+    header: {
+        display: "flex",
+        textAlign:"center",
+        height:"20%",
+        },
+    date: {
+        color: "white",
+        fontFamily: "Hind",
+        fontWeight: "bold",
+        letterSpacing: 4,
+        fontSize: 18,
+        textAlign:"center",
+        flex: 1,
     },
     frame: {
         width: "100%",
+        height:"80%",
         display: "flex",
         flex: 1,
     },

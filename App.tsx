@@ -19,6 +19,8 @@ import {
   Image,
 } from 'react-native';
 
+import LinearGradient from 'react-native-linear-gradient';
+
 import {
   Colors,
   DebugInstructions,
@@ -43,7 +45,7 @@ type SectionProps = PropsWithChildren<{
 
 
 function App(): JSX.Element {
-  const [page, setPage] = useState<'prompts'|'main'|'archive'>('main');
+  const [page, setPage] = useState<'prompts' | 'main' | 'archive'>('main');
   // Arhive will hold objects of type archive  in the format {date:string, title:string, entry:string, ai_response:string}
   // use .unshift to update
   const [archive, setArchive] = useState<Entry[]>([]);
@@ -57,34 +59,52 @@ function App(): JSX.Element {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
-      {page ==='archive' && <ArchiveMenu archive={archive}/>}
-      {page ==='main' && !record && <JournalScreen 
-      prompt={activePrompt} 
-      archive={archive} 
-      setArchive={setArchive}
-      setFocus={setFocus}/>}
-      {page === 'main' && record && <RecordScreen setRecord={setRecord}/>}
-      {page ==='prompts' && <PromptScreen setActivePrompt={setActivePrompt}/>}
-      
-      
-      
-      
-      {!focus && !record && <NavBar pages={setPage} page={page} setRecord={setRecord}/>}
-    </SafeAreaView>
+    
+      <SafeAreaView style={styles.container}>
+        <LinearGradient
+      colors={['#3380Da', 'black']}
+      end ={{x:0.5, y: 0.7}}
+      style={styles.gradient}>
+        {page === 'archive' && <ArchiveMenu archive={archive} />}
+        {page === 'main' && !record && <JournalScreen
+          prompt={activePrompt}
+          archive={archive}
+          setArchive={setArchive}
+          setFocus={setFocus} />}
+        {page === 'main' && record && <RecordScreen setRecord={setRecord} />}
+        {page === 'prompts' && <PromptScreen setActivePrompt={setActivePrompt} />}
+
+
+
+
+        {!focus && !record && <NavBar pages={setPage} page={page} setRecord={setRecord} />}
+        </LinearGradient>
+      </SafeAreaView>
+
+
+    
   );
 }
 
 const styles = StyleSheet.create({
-  
+
   container: {
     flex: 1,
-    backgroundColor:'#FF9B26', // ORANGE : rgba(255, 155, 38, 1.0) orange
+    display: "flex",
+    backgroundColor: '#FF9B26', // ORANGE : rgba(255, 155, 38, 1.0) orange
     alignItems: 'center',
     justifyContent: 'flex-end',
   },
- 
- 
+  gradient: {
+    flex: 1,
+    display:"flex",
+    width:"100%",
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    
+  }
+
+
 });
 
 export default App;
