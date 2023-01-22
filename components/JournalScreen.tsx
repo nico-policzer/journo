@@ -31,12 +31,13 @@ function JournalScreen(prop: any) {
     const archive = prop.archive;
     const setArchive = prop.setArchive;
     const setFocus = prop.setFocus;
+    const focus = prop.focus;
     //const[input, setInput] = useState('');
     const [response, setResponse] = useState('Please enter a query.');
     return (
         <View style={styles.frame}>
             <Text style={styles.text}> {prompt}</Text>
-            <TextInput style={styles.input} placeholder="..."
+            <TextInput style={focus? styles.input_focus: styles.input} placeholder="..."
                 onFocus={() => setFocus(true)}
                 onSubmitEditing={(prop) => {
                     setFocus(false)
@@ -74,11 +75,22 @@ const styles = StyleSheet.create({
     },
     input: {
         flex: 1,
-        backgroundColor: "rgba(255,255,255, 0.3)",
         borderTopRightRadius: 30,
         borderTopLeftRadius: 30,
         padding: 15,
         textAlignVertical: "top",
+        color:"white",
+        marginHorizontal: 20,
+    },
+    input_focus: {
+        marginHorizontal: 20,
+        flex: 1,
+        backgroundColor: "rgba(0,0,0, 0.5)",
+        borderTopRightRadius: 30,
+        borderTopLeftRadius: 30,
+        padding: 15,
+        textAlignVertical: "top",
+        color:"white",
     },
     text: {
         padding: 30,

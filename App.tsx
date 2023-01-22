@@ -69,6 +69,7 @@ function App(): JSX.Element {
         {page === 'main' && !record && <JournalScreen
           prompt={activePrompt}
           archive={archive}
+          focus={focus}
           setArchive={setArchive}
           setFocus={setFocus} />}
         {page === 'main' && record && <RecordScreen setRecord={setRecord} />}
