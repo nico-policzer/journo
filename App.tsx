@@ -67,6 +67,8 @@ function App(): JSX.Element {
   return (
     <SafeAreaView style={styles.container}>
 
+      
+  
       <View style={styles.content}>
         <Text>A text element</Text>
         <TextInput></TextInput>
@@ -108,7 +110,7 @@ function App(): JSX.Element {
 const styles = StyleSheet.create({
   content: {
     flex: 1,
-    backgroundColor:"#3380DA",
+   backgroundColor:"#3380DA",
     width: "100%",
   },
   sectionContainer: {
@@ -130,7 +132,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "black",
-    //'#4c2150',
     alignItems: 'center',
     justifyContent: 'flex-end',
   },

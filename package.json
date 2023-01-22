@@ -10,8 +10,10 @@
     "test": "jest"
   },
   "dependencies": {
+    "expo": "^47.0.13",
     "react": "18.2.0",
-    "react-native": "0.71.1"
+    "react-native": "0.71.1",
+    "expo-linear-gradient": "~12.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
