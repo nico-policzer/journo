@@ -39,7 +39,6 @@ function PromptScreen() {
       <Prompt prompt={"TEXT PROMPT #2"}/>
     </View>
 
-
       </ScrollView>
  );
 };

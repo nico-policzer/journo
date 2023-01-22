@@ -26,7 +26,7 @@ function NavBar(prop: any) {
     return(
         <View style={styles.footer}>
         <View style={styles.iconContainer}>
-          <TouchableOpacity activeOpacity={0.5} onPress={() => setPage('journal')}>
+          <TouchableOpacity activeOpacity={0.5} onPress={() => setPage('prompts')}>
             <Image
               source={require('../images/journalIcon.png')}
 

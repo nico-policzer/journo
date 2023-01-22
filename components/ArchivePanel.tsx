@@ -15,6 +15,8 @@ import {
   Button,
 } from 'react-native';
 
+import { Entry } from "./types";
+
 import {
   Colors,
   DebugInstructions,
@@ -23,17 +25,14 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-function ArchivePanel(prop: any) {
-    const title = prop.title;
-    const date = prop.date;
-    const entry = prop.entry;
+function ArchivePanel({entry}: {entry: Entry}) {
 
  return (
     <View style={styles.entry}>
-        <Text style={styles.date}>{date}</Text>
-        <Text style={styles.title}>{title}</Text>
-        <Text style={styles.entryText}>{entry}
-        </Text>
+        <Text style={styles.date}>{entry.date}</Text>
+        <Text style={styles.title}>{entry.title}</Text>
+        <Text style={styles.entryText}>{entry.entry}</Text>
+        <Text style={styles.aiText}>{entry.ai_response} </Text>
     </View>
  );
 };
@@ -45,6 +44,11 @@ const styles = StyleSheet.create({
         backgroundColor: "gray",
         height: 300,
         padding: 30,
+    },
+    aiText: {
+        fontWeight:"bold",
+        color:"white",
+        fontFamily:"Hind",
     },
     date: {
         color:"white",

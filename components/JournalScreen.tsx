@@ -24,32 +24,42 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import { TextProcessor } from '../TextProcessor';
+import { Entry } from './types';
 
-interface promptInterface{
-  prompt: string
-}
 function JournalScreen(prop: any) {
     const prompt = prop.prompt;
-    const[text, setText] = useState('');
+    const archive = prop.archive;
+    const setArchive = prop.setArchive;
+    const[input, setInput] = useState('');
+    const[response, setResponse] = useState('Please enter a query.');
  return (
     <View style={styles.frame}>
         <Text style={styles.text}> {prompt}</Text>
+        <Text style={styles.response}>{response}</Text>
     <TextInput style={styles.input} placeholder="... enter text here!"
-    onSubmitEditing={(prop) => setText(prop.nativeEvent.text)}>
+    onSubmitEditing={(prop) => setInput(prop.nativeEvent.text)}>
     </TextInput>
-    <Button onPress={()=> submitPrompt(text)}
+    <Button onPress={()=> submitPrompt(input, setResponse, archive, setArchive)}
     title="submit" color="green"/>
     </View>
  );
 };
-async function submitPrompt(prompt: string) {
+async function submitPrompt(prompt: string, setResponse: any, archive: any, setArchive: any) {
     // {Add functionality to send to chatGTP here}
-    console.log("PROMPT" + prompt);
-
+    
+    let toAI = "Please provide a respond to this journal entry.\n" + prompt;
     const textProcessor: TextProcessor = new TextProcessor();
+    const results: string[] = await textProcessor.completeText(toAI);
+    console.log(prompt);
+    console.log(results);
 
-    const results: string[] = await textProcessor.completeText(prompt);
-    console.log("RESULT:" + results);
+    const entry: Entry = {title:"TITLE", date:"DATE", entry:prompt, ai_response:results.join(" "), id:1}
+
+    archive.unshift(entry);
+    setArchive(archive);
+    setResponse(results);
+
+    
 }
 
 const styles = StyleSheet.create({
@@ -61,6 +71,9 @@ const styles = StyleSheet.create({
         gap: 40,
         backgroundColor:"white",
       },
+    response: {
+        // TODO: fill this in
+    },
     input: {
         flex: 1,
     },

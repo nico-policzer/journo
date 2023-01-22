@@ -15,13 +15,15 @@ export class TextProcessor {
 
     // Get list of completion choices (list of string)
     public async completeText(prompt: string) {
-        const response = await this.openAI.createCompletion({
-            model: "text-davinci-003",
-            prompt: prompt,
-            max_tokens: 100,
-            temperature: 0,
-          });
+        // const response = await this.openAI.createCompletion({
+        //     model: "text-davinci-003",
+        //     prompt: prompt,
+        //     max_tokens: 10,
+        //     temperature: 0,
+        //   });
 
-        return response.data["choices"].map((x: any) => x["text"]);
+        //return response.data["choices"].map((x: any) => x["text"]);
+        return ["Hello there, how are you? ", "I wish i could respond to your inquery.",
+      " But I have no idea what it is!"];
     }
 }
