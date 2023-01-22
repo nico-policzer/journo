@@ -27,6 +27,8 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+import NavBar from "./NavBar"
+
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
@@ -66,43 +68,14 @@ function App(): JSX.Element {
 
   return (
     <SafeAreaView style={styles.container}>
-
-      
-  
       <View style={styles.content}>
-        <Text>A text element</Text>
+        <View style={styles.textFrame}>
+        <Text style={styles.text}>How are you feeling today?</Text>
         <TextInput></TextInput>
-      </View>
-      <View style={styles.footer}>
-        <View style={styles.iconContainer}>
-          <TouchableOpacity activeOpacity={0.5}>
-            <Image
-              source={require('./images/journalIcon.png')}
-
-            />
-
-          </TouchableOpacity>
-        </View>
-
-
-        <TouchableOpacity activeOpacity={0.5}>
-          <Image
-            source={require('./images/boy.png')}
-            style={styles.BoyIconStyle}
-          />
-
-        </TouchableOpacity>
-        <View style={styles.iconContainer}>
-          <TouchableOpacity activeOpacity={0.5}>
-            <Image
-              source={require('./images/historyIcon.png')}
-
-            />
-
-          </TouchableOpacity>
-
         </View>
       </View>
+      <NavBar/>
+      
     </SafeAreaView>
   );
 }
@@ -111,7 +84,21 @@ const styles = StyleSheet.create({
   content: {
     flex: 1,
    backgroundColor:"#3380DA",
+   display:"flex",
+   justifyContent:"center",
+   alignContent:"center",
+   textAlign:"center",
     width: "100%",
+  },
+  textFrame: {
+    display: "flex",
+  },
+  text: {
+    textAlign: "center",
+    color: "#FFFE",
+    fontWeight:"bold",
+    fontSize: 25,
+    fontFamily:"Hind",
   },
   sectionContainer: {
     marginTop: 32,
@@ -135,26 +122,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-end',
   },
-  footer: {
-    display: "flex",
-    flexDirection: "row",
-    width: "100%",
-    height: 100,
-    backgroundColor: "#121212",
-    justifyContent: "space-evenly",
-    alignContent: "center",
-  },
-  BoyIconStyle: {
-    width: 125,
-    height: 125,
-  },
-
-  iconContainer: {
-    flex: 1,
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  }
 });
 
 export default App;
