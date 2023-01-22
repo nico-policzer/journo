@@ -77,9 +77,13 @@ function App(): JSX.Element {
         <Text>A text element</Text>
         <TextInput></TextInput>
       </View>
+      <ScrollView style={styles.frame}>
       <Prompt prompt={"TEXT PROMPT #1"}/>
       <Prompt prompt={"TEXT PROMPT #2"}/>
       <Prompt prompt='TEXT PROMPT #3'/>
+      
+
+      </ScrollView>
       
       <NavBar/>
     </SafeAreaView>
@@ -87,6 +91,12 @@ function App(): JSX.Element {
 }
 
 const styles = StyleSheet.create({
+  frame: {
+    height: "40%",
+    width: "100%",
+    display: "flex",
+    backgroundColor:"#3380DA",
+  },
   content: {
     flex: 1,
     backgroundColor:"#3380DA",
