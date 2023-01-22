@@ -46,6 +46,7 @@ function App(): JSX.Element {
   // Arhive will hold objects of type archive  in the format {date:string, title:string, entry:string, ai_response:string}
   // use .unshift to update
   const [archive, setArchive] = useState<Entry[]>([]);
+  const [activePrompt, setActivePrompt] = useState<string>('Hello Nico.');
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
@@ -55,8 +56,8 @@ function App(): JSX.Element {
   return (
     <SafeAreaView style={styles.container}>
       {page ==='archive' && <ArchiveMenu archive={archive}/>}
-      {page ==='main' && <JournalScreen prompt="HELLO DUDE" archive={archive} setArchive={setArchive}/>}
-      {page ==='prompts' && <PromptScreen/>}
+      {page ==='main' && <JournalScreen prompt={activePrompt} archive={archive} setArchive={setArchive}/>}
+      {page ==='prompts' && <PromptScreen setActivePrompt={setActivePrompt}/>}
       
       
       
@@ -70,7 +71,7 @@ const styles = StyleSheet.create({
   
   container: {
     flex: 1,
-    backgroundColor:'#FF9B26',
+    backgroundColor:'#FF9B26', // ORANGE : rgba(255, 155, 38, 1.0) orange
     alignItems: 'center',
     justifyContent: 'flex-end',
   },

@@ -26,12 +26,12 @@ import {
 interface promptInterface{
   prompt: string
 }
-function PromptScreen() {
+function PromptScreen({setActivePrompt}: any) {
  return (
     <View style={styles.scrollFrame}>
-      <Prompt prompt={"TEXT PROMPT #1"}/>
-      <Prompt prompt={"TEXT PROMPT #2"}/>
-      <Prompt prompt={"TEXT PROMPT #3"}/>
+      <Prompt prompt={"Something that made me smile today"} setActivePrompt={setActivePrompt}/>
+      <Prompt prompt={"What was the kindest thing that someone did for me today?"} setActivePrompt={setActivePrompt}/>
+      <Prompt prompt={"What is a goal that I would like to accomplish by the end of the month?"} setActivePrompt={setActivePrompt}/>
     </View>
 
  );

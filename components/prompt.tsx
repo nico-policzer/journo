@@ -25,11 +25,12 @@ import {
 
 interface promptInterface {
   prompt: string
+  setActivePrompt: any
 }
-function Prompt({ prompt }: promptInterface) {
+function Prompt({ prompt, setActivePrompt }: promptInterface) {
   return (
     <View style={styles.prompt}>
-      <TouchableOpacity activeOpacity={0.5} style={styles.touch}>
+      <TouchableOpacity activeOpacity={0.5} style={styles.touch} onPress={() => setActivePrompt(prompt)}>
         <Text style={styles.text}>{prompt}</Text>
       </TouchableOpacity>
     </View>

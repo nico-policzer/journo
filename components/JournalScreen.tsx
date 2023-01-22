@@ -35,29 +35,28 @@ function JournalScreen(prop: any) {
  return (
     <View style={styles.frame}>
         <Text style={styles.text}> {prompt}</Text>
-        <Text style={styles.response}>{response}</Text>
     <TextInput style={styles.input} placeholder="... enter text here!"
     onSubmitEditing={(prop) => setInput(prop.nativeEvent.text)}>
     </TextInput>
-    <Button onPress={()=> submitPrompt(input, setResponse, archive, setArchive)}
+    <Button onPress={()=> submitPrompt(input, prompt, setResponse, archive, setArchive)}
     title="submit" color="green"/>
     </View>
  );
 };
-async function submitPrompt(prompt: string, setResponse: any, archive: any, setArchive: any) {
+async function submitPrompt(entry: string, prompt: string, setResponse: any, archive: any, setArchive: any) {
     var date = new Date();
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     // {Add functionality to send to chatGTP here}
     
-    let toAI = "Please provide a respond to this journal entry.\n" + prompt;
+    let toAI = "Please provide a respond to this journal entry.\n" + entry;
     const textProcessor: TextProcessor = new TextProcessor();
     const results: string[] = await textProcessor.completeText(toAI);
-    console.log(prompt);
+    console.log(entry);
     console.log(results);
     let dateOfEntry = months[date.getMonth()] + " " + date.getDate() + " " + date.getFullYear()
-    const entry: Entry = {title:"TITLE", date:dateOfEntry, entry:prompt, ai_response:results.join(" "), id:date.getTime()}
+    const loggedEntry: Entry = {title:prompt, date:dateOfEntry, entry:entry, ai_response:results.join(" "), id:date.getTime()}
 
-    archive.unshift(entry);
+    archive.unshift(loggedEntry);
     setArchive(archive);
     setResponse(results);
 
@@ -66,16 +65,12 @@ async function submitPrompt(prompt: string, setResponse: any, archive: any, setA
 
 const styles = StyleSheet.create({
     frame: {
-        height: "40%",
         width: "100%",
         display: "flex",
         flex: 1,
         gap: 40,
         backgroundColor:"white",
       },
-    response: {
-        // TODO: fill this in
-    },
     input: {
         flex: 1,
     },
