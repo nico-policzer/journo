@@ -27,7 +27,8 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import NavBar from "./NavBar"
+import NavBar from "./components/NavBar";
+import MainMenu from "./components/mainMenu";
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -69,10 +70,7 @@ function App(): JSX.Element {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
-        <View style={styles.textFrame}>
-        <Text style={styles.text}>How are you feeling today?</Text>
-        <TextInput></TextInput>
-        </View>
+        <MainMenu/>
       </View>
       <NavBar/>
       
@@ -90,16 +88,7 @@ const styles = StyleSheet.create({
    textAlign:"center",
     width: "100%",
   },
-  textFrame: {
-    display: "flex",
-  },
-  text: {
-    textAlign: "center",
-    color: "#FFFE",
-    fontWeight:"bold",
-    fontSize: 25,
-    fontFamily:"Hind",
-  },
+  
   sectionContainer: {
     marginTop: 32,
     paddingHorizontal: 24,
