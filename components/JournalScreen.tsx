@@ -46,6 +46,7 @@ function JournalScreen(prop: any) {
 };
 async function submitPrompt(prompt: string, setResponse: any, archive: any, setArchive: any) {
     var date = new Date();
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     // {Add functionality to send to chatGTP here}
     
     let toAI = "Please provide a respond to this journal entry.\n" + prompt;
@@ -53,8 +54,8 @@ async function submitPrompt(prompt: string, setResponse: any, archive: any, setA
     const results: string[] = await textProcessor.completeText(toAI);
     console.log(prompt);
     console.log(results);
-
-    const entry: Entry = {title:"TITLE", date:"DATE", entry:prompt, ai_response:results.join(" "), id:date.getTime()}
+    let dateOfEntry = months[date.getMonth()] + " " + date.getDate() + " " + date.getFullYear()
+    const entry: Entry = {title:"TITLE", date:dateOfEntry, entry:prompt, ai_response:results.join(" "), id:date.getTime()}
 
     archive.unshift(entry);
     setArchive(archive);
