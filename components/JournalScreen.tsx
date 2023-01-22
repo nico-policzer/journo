@@ -1,6 +1,7 @@
 
 
 import React from 'react';
+import { useState } from 'react';
 import type { PropsWithChildren } from 'react';
 import { processColor, TextInput, TouchableOpacity } from 'react-native';
 import {
@@ -28,15 +29,21 @@ interface promptInterface{
 }
 function JournalScreen(prop: any) {
     const prompt = prop.prompt;
+    const[text, setText] = useState('');
  return (
     <View style={styles.frame}>
         <Text style={styles.text}> {prompt}</Text>
-    <TextInput > ...
+    <TextInput style={styles.input} placeholder="... enter text here!"
+    onSubmitEditing={(prop) => setText(prop.nativeEvent.text)}>
     </TextInput>
+    <Button onPress={()=> submitPrompt(text)}
+    title="submit" color="green"/>
     </View>
  );
 };
-
+function submitPrompt(prompt: string) {
+    console.log(prompt);
+}
 
 const styles = StyleSheet.create({
     frame: {
@@ -47,6 +54,9 @@ const styles = StyleSheet.create({
         gap: 40,
         backgroundColor:"white",
       },
+    input: {
+        flex: 1,
+    },
     text: {
         padding: 30,
         fontFamily:"Hind",
