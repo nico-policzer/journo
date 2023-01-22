@@ -27,6 +27,10 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+import NavBar from "./components/NavBar";
+import prompt from "./components/prompt";
+import Prompt from './components/prompt';
+
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
@@ -67,40 +71,17 @@ function App(): JSX.Element {
   return (
     <SafeAreaView style={styles.container}>
 
+
+      
       <View style={styles.content}>
         <Text>A text element</Text>
         <TextInput></TextInput>
       </View>
-      <View style={styles.footer}>
-        <View style={styles.iconContainer}>
-          <TouchableOpacity activeOpacity={0.5}>
-            <Image
-              source={require('./images/journalIcon.png')}
-
-            />
-
-          </TouchableOpacity>
-        </View>
-
-
-        <TouchableOpacity activeOpacity={0.5}>
-          <Image
-            source={require('./images/boy.png')}
-            style={styles.BoyIconStyle}
-          />
-
-        </TouchableOpacity>
-        <View style={styles.iconContainer}>
-          <TouchableOpacity activeOpacity={0.5}>
-            <Image
-              source={require('./images/historyIcon.png')}
-
-            />
-
-          </TouchableOpacity>
-
-        </View>
-      </View>
+      <Prompt prompt={"TEXT PROMPT #1"}/>
+      <Prompt prompt={"TEXT PROMPT #2"}/>
+      <Prompt prompt='TEXT PROMPT #3'/>
+      
+      <NavBar/>
     </SafeAreaView>
   );
 }
@@ -134,26 +115,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-end',
   },
-  footer: {
-    display: "flex",
-    flexDirection: "row",
-    width: "100%",
-    height: 100,
-    backgroundColor: "#121212",
-    justifyContent: "space-evenly",
-    alignContent: "center",
-  },
-  BoyIconStyle: {
-    width: 125,
-    height: 125,
-  },
-
-  iconContainer: {
-    flex: 1,
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  }
+ 
+ 
 });
 
 export default App;
