@@ -33,6 +33,16 @@ import Prompt from './components/prompt';
 import PromptScreen from "./components/PromptScreen";
 import JournalScreen from "./components/JournalScreen";
 import ArchiveMenu from "./components/ArchiveMenu";
+import { AudioProcessor } from './AudioProcessor';
+
+
+// import AudioRecorderPlayer, {
+//   AVEncoderAudioQualityIOSType,
+//   AVEncodingOption,
+//   AudioEncoderAndroidType,
+//   AudioSet,
+//   AudioSourceAndroidType,
+//  } from 'react-native-audio-recorder-player';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -44,9 +54,38 @@ function App(): JSX.Element {
   const [page, setPage] = useState<'journal'|'main'|'archive'>('main');
   const isDarkMode = useColorScheme() === 'dark';
 
+  // const audioRecorderPlayer = new AudioRecorderPlayer();
+
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
+
+  const onPress = async () => {
+    const audioProcessor: AudioProcessor = new AudioProcessor();
+
+    audioProcessor.handleAudioInput("TODO filepath");
+  }
+  //   console.log("hello")
+  //   const path = 'hello.m4a';
+  //   const audioSet = {
+  //     AudioEncoderAndroid: AudioEncoderAndroidType.AAC,
+  //     AudioSourceAndroid: AudioSourceAndroidType.MIC,
+  //     AVEncoderAudioQualityKeyIOS: AVEncoderAudioQualityIOSType.high,
+  //     AVNumberOfChannelsKeyIOS: 2,
+  //     AVFormatIDKeyIOS: AVEncodingOption.aac,
+  //   };
+  //   console.log('audioSet', audioSet);
+    
+  //   audioRecorderPlayer.addRecordBackListener((e) => {
+  //     console.log(e);
+  //   });
+    
+  //   audioRecorderPlayer.startRecorder()
+  //     .then((result: string) => {
+  //       console.log(result);
+  //     });
+  //   // setPage('main')
+  // };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -57,7 +96,9 @@ function App(): JSX.Element {
       
       
       
-      <NavBar pages={setPage}/>
+      <NavBar pages={setPage}
+      onPress={onPress}
+      />
     </SafeAreaView>
   );
 }

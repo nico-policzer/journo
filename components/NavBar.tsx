@@ -21,8 +21,11 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+
+
 function NavBar(prop: any) {
     const setPage = prop.pages;
+
     return(
         <View style={styles.footer}>
         <View style={styles.iconContainer}>
@@ -36,7 +39,8 @@ function NavBar(prop: any) {
         </View>
 
 
-        <TouchableOpacity activeOpacity={0.5} onPress={() => setPage('main')}>
+        <TouchableOpacity activeOpacity={0.5}
+        onPress={prop.onPress}>
           <Image
             source={require('../images/boy.png')}
             style={styles.BoyIconStyle}

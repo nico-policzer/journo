@@ -2,7 +2,7 @@ import { Configuration, OpenAIApi, CreateCompletionRequest } from 'openai';
 import { setupURLPolyfill } from 'react-native-url-polyfill';
 
 const configuration = new Configuration({
-    apiKey: "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",
+    apiKey: "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",
   });
 
 export class TextProcessor {
