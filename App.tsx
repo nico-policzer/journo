@@ -5,7 +5,7 @@
  * @format
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import type { PropsWithChildren } from 'react';
 import { TextInput, TouchableOpacity } from 'react-native';
 import {
@@ -32,6 +32,7 @@ import prompt from "./components/prompt";
 import Prompt from './components/prompt';
 import PromptScreen from "./components/PromptScreen";
 import JournalScreen from "./components/JournalScreen";
+import ArchiveMenu from "./components/ArchiveMenu";
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -40,6 +41,7 @@ type SectionProps = PropsWithChildren<{
 
 
 function App(): JSX.Element {
+  const [page, setPage] = useState<'journal'|'main'|'archive'>('main');
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
@@ -49,11 +51,14 @@ function App(): JSX.Element {
   return (
     <SafeAreaView style={styles.container}>
         {/* So have all the screens as different components here, switch on button press */}
-
-      <JournalScreen prompt={"Enter your journal entry below"}/>
+      {page ==='archive' && <ArchiveMenu/>}
+      {page ==='main' && <JournalScreen prompt="HELLO DUDE"/>}
+      {page ==='journal' && <PromptScreen/>}
       
       
-      <NavBar/>
+      
+      
+      <NavBar pages={setPage}/>
     </SafeAreaView>
   );
 }

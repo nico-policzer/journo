@@ -21,11 +21,12 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-function NavBar() {
+function NavBar(prop: any) {
+    const setPage = prop.pages;
     return(
         <View style={styles.footer}>
         <View style={styles.iconContainer}>
-          <TouchableOpacity activeOpacity={0.5}>
+          <TouchableOpacity activeOpacity={0.5} onPress={() => setPage('journal')}>
             <Image
               source={require('../images/journalIcon.png')}
 
@@ -35,7 +36,7 @@ function NavBar() {
         </View>
 
 
-        <TouchableOpacity activeOpacity={0.5}>
+        <TouchableOpacity activeOpacity={0.5} onPress={() => setPage('main')}>
           <Image
             source={require('../images/boy.png')}
             style={styles.BoyIconStyle}
@@ -43,7 +44,7 @@ function NavBar() {
 
         </TouchableOpacity>
         <View style={styles.iconContainer}>
-          <TouchableOpacity activeOpacity={0.5}>
+          <TouchableOpacity activeOpacity={0.5} onPress={() => setPage('archive')}>
             <Image
               source={require('../images/historyIcon.png')}
 
