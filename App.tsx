@@ -50,7 +50,6 @@ function App(): JSX.Element {
 
   return (
     <SafeAreaView style={styles.container}>
-        {/* So have all the screens as different components here, switch on button press */}
       {page ==='archive' && <ArchiveMenu/>}
       {page ==='main' && <JournalScreen prompt="HELLO DUDE"/>}
       {page ==='journal' && <PromptScreen/>}

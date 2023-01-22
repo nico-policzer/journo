@@ -2,7 +2,7 @@ import { Configuration, OpenAIApi, CreateCompletionRequest } from 'openai';
 import { setupURLPolyfill } from 'react-native-url-polyfill';
 
 const configuration = new Configuration({
-    apiKey: "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",
+    apiKey: "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",
   });
 
 export class TextProcessor {
@@ -18,7 +18,7 @@ export class TextProcessor {
         const response = await this.openAI.createCompletion({
             model: "text-davinci-003",
             prompt: prompt,
-            max_tokens: 7,
+            max_tokens: 100,
             temperature: 0,
           });
 

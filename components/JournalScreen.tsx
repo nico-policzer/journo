@@ -23,6 +23,7 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import { TextProcessor } from '../TextProcessor';
 
 interface promptInterface{
   prompt: string
@@ -41,8 +42,14 @@ function JournalScreen(prop: any) {
     </View>
  );
 };
-function submitPrompt(prompt: string) {
-    console.log(prompt);
+async function submitPrompt(prompt: string) {
+    // {Add functionality to send to chatGTP here}
+    console.log("PROMPT" + prompt);
+
+    const textProcessor: TextProcessor = new TextProcessor();
+
+    const results: string[] = await textProcessor.completeText(prompt);
+    console.log("RESULT:" + results);
 }
 
 const styles = StyleSheet.create({
