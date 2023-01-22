@@ -4,37 +4,44 @@ import React from 'react';
 import type { PropsWithChildren } from 'react';
 import { processColor, TextInput, TouchableOpacity } from 'react-native';
 import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-  Image,
-  Button,
+    SafeAreaView,
+    ScrollView,
+    StatusBar,
+    StyleSheet,
+    Text,
+    useColorScheme,
+    View,
+    Image,
+    Button,
 } from 'react-native';
 
 import { Entry } from "./types";
 
 import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
+    Colors,
+    DebugInstructions,
+    Header,
+    LearnMoreLinks,
+    ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-function ArchivePanel({entry}: {entry: Entry}) {
+function ArchivePanel({ entry }: { entry: Entry }) {
 
- return (
-    <View style={styles.entry}>
-        <Text style={styles.date}>{entry.date}</Text>
-        <Text style={styles.title}>{entry.title}</Text>
-        <Text style={styles.entryText}>{entry.entry}</Text>
-        <Text style={styles.aiText}>{entry.ai_response} </Text>
-    </View>
- );
+    return (
+
+
+        <View style={styles.entry}>
+            <Image source={require("../images/folderminus.png")}
+                style={styles.folder} />
+            <View style={styles.content}>
+                <Text style={styles.date}>{entry.date}</Text>
+                <Text style={styles.title}>{entry.title}</Text>
+                <Text style={styles.entryText}>{entry.entry}</Text>
+                <Text style={styles.aiText}>{entry.ai_response} </Text>
+            </View>
+        </View>
+
+    );
 };
 
 
@@ -43,32 +50,44 @@ const styles = StyleSheet.create({
         display: "flex",
         backgroundColor: "rgba(52, 66, 60, 0.5)",
         height: "auto",
-        padding: 30,
+        padding: 15,
         flex: 1,
         borderRadius: 20,
         borderColor: "white",
         borderWidth: 1,
+        flexDirection: "row",
+        gap: 10,
 
     },
+    content: {
+        width: "90%",
+        gap: 1,
+    },
+    folder: {
+        // fill in
+    },
+    frame: {
+        // fill in,
+    },
     aiText: {
-        fontWeight:"bold",
-        color:"white",
-        fontFamily:"Hind",
+        fontWeight: "bold",
+        color: "white",
+        fontFamily: "Hind",
     },
     date: {
-        color:"white",
-        fontFamily:"Hind",
-        fontWeight:"bold"
+        color: "white",
+        fontFamily: "Hind",
+        fontWeight: "bold"
     },
     title: {
-        color:"white",
-        fontFamily:"Hind",
-        fontWeight:"bold"
+        color: "white",
+        fontFamily: "Hind",
+        fontWeight: "bold"
     },
     entryText: {
-        color:"white",
-        fontFamily:"Hind",
-        fontWeight:"300"
+        color: "white",
+        fontFamily: "Hind",
+        fontWeight: "300"
     }
 });
 

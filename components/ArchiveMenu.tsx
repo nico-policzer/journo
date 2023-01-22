@@ -36,12 +36,14 @@ interface ArchiveMenuProps {
 function ArchiveMenu({ archive }: ArchiveMenuProps) {
 
     return (
+        <>
+        <Text style={styles.header}> Past Entries</Text>
         <ScrollView style={styles.frame}>
             <View style={styles.scrollContent}>
                 {archive.map((e) => <ArchivePanel entry={e} key={e.id}/>)}
             </View>
-           
         </ScrollView>
+        </>
     );
 };
 
@@ -54,6 +56,13 @@ const styles = StyleSheet.create({
         gap: 20,
         padding: 15,
         
+    },
+    header: {
+        color: "white",
+        fontFamily:"Hind",
+        fontWeight: "bold",
+        padding: 30,
+        fontSize: 30,
     },
     frame: {
         width: "100%",
