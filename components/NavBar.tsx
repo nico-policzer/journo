@@ -20,6 +20,7 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import { Recorder } from './Recorder';
 
 
 
@@ -30,9 +31,9 @@ function NavBar(prop: any) {
         <View style={styles.footer}>
         <View style={styles.iconContainer}>
           <TouchableOpacity activeOpacity={0.5} onPress={() => setPage('journal')}>
+            <Recorder/>
             <Image
               source={require('../images/journalIcon.png')}
-
             />
 
           </TouchableOpacity>

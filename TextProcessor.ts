@@ -24,4 +24,27 @@ export class TextProcessor {
 
         return response.data["choices"].map((x: any) => x["text"]);
     }
+
+    public async generatePrompts() {
+        const response = await this.openAI.createCompletion({
+            model: "text-davinci-003",
+            prompt: "Give me a list of 3 prompts",
+            max_tokens: 10,
+            temperature: 0,
+          });
+
+          console.log(response.data["choices"]);
+        return response.data["choices"].map((x: any) => x["text"]);
+    }
+
+    // public async generatePrompts(): {
+    //     const response = await this.openAI.createCompletion({
+    //         model: "text-davinci-003",
+    //         prompt: "Give me a list of 3 prompts",
+    //         max_tokens: 10,
+    //         temperature: 0,
+    //     });
+
+    //     return response.data["choices"].map((x: any) => x["text"]);
+    // }
 }

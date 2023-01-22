@@ -11,19 +11,21 @@ export class AudioProcessor {
     constructor() { }
 
     // Audio file path string -> completion string
-    public async handleAudioInput(audioFilepath: string) {
+    public async handleAudioInput(audioFilepath: string, audioEncoded: string) {
         // Call whisper API to transcribe audio
-        const transcription: string = await this.speechToText(audioFilepath);
+        const transcription: string = await this.speechToText(audioFilepath, audioEncoded);
         console.log("Yay! The transcription is done " + transcription);
 
         // Text complete the audio transcription
-        const textCompletions: string[] = this.textProcessor.completeText(transcription);
-        return textCompletions;
+        // const textCompletions: string[] = await this.textProcessor.completeText(transcription);
+        // return textCompletions;
+        return [transcription];
     }
 
-    private speechToText(audioFilepath: string): Promise<string> {
+    private speechToText(audioFilepath: string, audioEncoded: string): Promise<string> {
         return axios.post(WHISPER_ENDPOINT, {
-            "audio_filepath": audioFilepath
+            "audio_filepath": audioFilepath,
+            "audio_encoded": audioEncoded
         }).then(resp => {
             console.log(resp.data);
             return resp.data;
