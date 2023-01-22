@@ -30,7 +30,9 @@ function RecordScreen({ setRecord }: any) {
 
     return (
         <View style={styles.frame}>
-            <Text> Speak your mind! </Text>
+            <View style={styles.visualizerFrame} >
+            <Image source={require('../images/Visualizer.png')} style={styles.visualizer}/>
+            </View>
             <View style={styles.iconFrame}>
             <TouchableOpacity activeOpacity={0.5} onPress={() => setRecord(false)
             }>
@@ -44,31 +46,31 @@ function RecordScreen({ setRecord }: any) {
 
 
 const styles = StyleSheet.create({
-    scrollContent: {
+    visualizerFrame: {
         display: "flex",
-        flex: 1,
-        height: "100%",
-        gap: 20,
-        padding: 15,
-
+        justifyContent:"flex-end",
+        flex:1,
     },
     iconFrame: {
         flex: 1,
         display:"flex",
-        justifyContent:"center",
+        justifyContent:"flex-end",
+        paddingBottom: 40,
         alignItems:"center",
     },
     header: {
         color: "white",
         fontFamily: "Hind",
         fontWeight: "bold",
-        padding: 30,
+        padding: 100,
         fontSize: 30,
     },
     frame: {
         width: "100%",
-        display: "flex",
         flex: 1,
+        display:"flex",
+        justifyContent:"center",
+        alignItems:"center",
     },
 });
 

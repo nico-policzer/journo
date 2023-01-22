@@ -48,11 +48,6 @@ const styles = StyleSheet.create({
         width: "100%",
         backgroundColor:'#FF9B26', // rgba(255, 155, 38, 1.0) orange
     },
-    frame: {
-        width: "100%",
-        display: "flex",
-        flex: 1,
-      },
 });
 
 export default PromptScreen;

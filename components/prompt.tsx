@@ -40,12 +40,12 @@ function Prompt({ prompt, setActivePrompt }: promptInterface) {
 
 const styles = StyleSheet.create({
   prompt: {
-    height: 150,
     backgroundColor: "rgba(52, 66, 60, 0.5)",
     alignContent: "center",
-    flex: 0,
-    display: "flex",
+    justifyContent: "center",
+    display:"flex",
     borderRadius: 30,
+    height: 150,
   },
 
   touch: {
@@ -55,8 +55,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     },
   text: {
+    display:"flex",
+    justifyContent:"center",
+    alignItems:'center',
     color: "white",
     margin: 30,
+    flex: 1,
     fontFamily: "Hind",
     textAlign: "center",
     fontWeight: "bold",
