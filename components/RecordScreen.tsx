@@ -53,8 +53,6 @@ function RecordScreen({ setRecord }: any) {
 
     );
 };
-
-
 const styles = StyleSheet.create({
     visualizerFrame: {
         display: "flex",

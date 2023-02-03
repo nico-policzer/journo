@@ -1,10 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React, { useState } from 'react';
 import type { PropsWithChildren } from 'react';
 import { TextInput, TouchableOpacity } from 'react-native';
@@ -92,7 +85,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     display: "flex",
-    backgroundColor: '#FF9B26', // ORANGE : rgba(255, 155, 38, 1.0) orange
+    backgroundColor: '#FF9B26',
     alignItems: 'center',
     justifyContent: 'flex-end',
   },

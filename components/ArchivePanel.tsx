@@ -17,14 +17,6 @@ import {
 
 import { Entry } from "./types";
 
-import {
-    Colors,
-    DebugInstructions,
-    Header,
-    LearnMoreLinks,
-    ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
 // A single panel displaying an archive entry
 function ArchivePanel({ entry }: { entry: Entry }) {
 
