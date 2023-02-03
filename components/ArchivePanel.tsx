@@ -25,14 +25,13 @@ import {
     ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+// A single panel displaying an archive entry
 function ArchivePanel({ entry }: { entry: Entry }) {
 
     return (
 
-
         <View style={styles.entry}>
-            <Image source={require("../images/folderminus.png")}
-                style={styles.folder} />
+            <Image source={require("../images/folderminus.png")}/>
             <View style={styles.content}>
                 <Text style={styles.date}>{entry.date}</Text>
                 <Text style={styles.title}>{entry.title}</Text>
@@ -48,7 +47,7 @@ function ArchivePanel({ entry }: { entry: Entry }) {
 const styles = StyleSheet.create({
     entry: {
         display: "flex",
-        
+
         height: "auto",
         padding: 15,
         flex: 1,
@@ -59,14 +58,8 @@ const styles = StyleSheet.create({
     },
     content: {
         width: "90%",
-        
+
         gap: 1,
-    },
-    folder: {
-        // fill in
-    },
-    frame: {
-        // fill in,
     },
     aiText: {
         fontWeight: "bold",

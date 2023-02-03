@@ -13,60 +13,37 @@ import {
     Image,
 } from 'react-native';
 
-import {
-    Colors,
-    DebugInstructions,
-    Header,
-    LearnMoreLinks,
-    ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-import { PromptGenerator } from './promptGenerator';
 
 function NavBar(prop: any) {
     const setPage = prop.pages;
     const setRecord = prop.setRecord;
     const page = prop.page;
     const setPrompts = prop.setPrompts;
-    
-    
+
+
 
     return (
         <View style={styles.footer}>
             <View style={styles.iconContainer}>
                 <TouchableOpacity activeOpacity={0.5} onPress={() => {
-
                     setPage('prompts');
-                     }}>
-                    <Image
-                        source={require('../images/journalIcon.png')}
-
-                    />
-
+                }}>
+                    <Image source={require('../images/journalIcon.png')} />
                 </TouchableOpacity>
             </View>
-
             <View style={styles.iconContainer}>
                 <TouchableOpacity activeOpacity={0.5} onPress={() => {
                     (page === 'main' && setRecord(true))
                     setPage('main')
-                }
-                }>
-                    <Image
-                        source={require('../images/boy.png')}
-                        style={styles.BoyIconStyle}
-                    />
-
+                }}>
+                    <Image source={require('../images/boy.png')} style={styles.BoyIconStyle}/>
                 </TouchableOpacity>
             </View>
             <View style={styles.iconContainer}>
                 <TouchableOpacity activeOpacity={0.5} onPress={() => setPage('archive')}>
                     <Image
-                        source={require('../images/historyIcon.png')}
-
-                    />
-
+                        source={require('../images/historyIcon.png')}/>
                 </TouchableOpacity>
-
             </View>
         </View>
     );
@@ -80,7 +57,7 @@ const styles = StyleSheet.create({
     anotherContainer: {
 
     },
-      iconContainer: {
+    iconContainer: {
         padding: 10,
         flex: 1,
         display: "flex",

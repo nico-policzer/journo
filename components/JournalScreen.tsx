@@ -26,13 +26,13 @@ import {
 import { TextProcessor } from '../TextProcessor';
 import { Entry } from './types';
 
+// A screen displaying a prompt and allowing users to input their journal responses
 function JournalScreen(prop: any) {
     const prompt = prop.prompt;
     const archive = prop.archive;
     const setArchive = prop.setArchive;
     const setFocus = prop.setFocus;
     const focus = prop.focus;
-    //const[input, setInput] = useState('');
     const [response, setResponse] = useState('Please enter a query.');
     return (
         <View style={styles.frame}>
@@ -51,7 +51,6 @@ function JournalScreen(prop: any) {
 async function submitPrompt(entry: string, prompt: string, setResponse: any, archive: any, setArchive: any) {
     var date = new Date();
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    // {Add functionality to send to chatGTP here}
 
     let toAI = "Read the following journal entry and, assuming it is complete, give a response to it that is within two sentences, providing well-being recommendations. If the text seems incomplete or doesn't seem like a journal entry, respond with an apology about how you aren't able to understand their entry:\n"  + prompt + "\n" + entry;
     const textProcessor: TextProcessor = new TextProcessor();

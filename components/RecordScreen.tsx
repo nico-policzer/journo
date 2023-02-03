@@ -29,6 +29,7 @@ import ArchivePanel from "./ArchivePanel";
 import LinearGradient from 'react-native-linear-gradient';
 
 
+// Screen displayed when recording button pressed (recording non-function in this version)
 function RecordScreen({ setRecord }: any) {
 
     return (

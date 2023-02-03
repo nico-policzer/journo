@@ -27,6 +27,7 @@ interface promptInterface {
   prompt: string
   setActivePrompt: any
 }
+// A single prompt panel which on press, changes the active journaling prompt in the app
 function Prompt({ prompt, setActivePrompt }: promptInterface) {
   return (
     <View style={styles.prompt}>

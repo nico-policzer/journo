@@ -16,22 +16,13 @@ import {
 } from 'react-native';
 import Prompt from "./prompt"
 import { Entry } from './types'
-import {
-    Colors,
-    DebugInstructions,
-    Header,
-    LearnMoreLinks,
-    ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
 import ArchivePanel from "./ArchivePanel";
-interface promptInterface {
-    prompt: string
-}
-
 interface ArchiveMenuProps {
     archive: Entry[];
     title?: string;
 }
+
+// Menu page displaying users past journal entries with ChatGTPs response
 
 function ArchiveMenu({ archive }: ArchiveMenuProps) {
 

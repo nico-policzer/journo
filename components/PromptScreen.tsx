@@ -22,7 +22,6 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-import { PromptGenerator } from './promptGenerator';
 
 interface promptInterface{
   prompt: string
@@ -56,7 +55,6 @@ const styles = StyleSheet.create({
         height: "80%",
         padding: 10,
         width: "100%",
-        //backgroundColor:'#FF9B26', // rgba(255, 155, 38, 1.0) orange
     },
     frame: {
         width: "100%",
